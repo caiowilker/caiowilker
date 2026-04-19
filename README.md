@@ -1,93 +1,94 @@
-# 🧑🏻‍💻 Caio Wilker
+<div align="center">
 
-<p align="center">
-  <strong>Desenvolvedor Full Stack em formação • Engenharia da Computação</strong>
-</p>
+# Caio Wilker
 
----
+**Full Stack Developer · Java & Spring Boot · React & TypeScript**
 
-Sou **Caio Wilker**, estudante de **Engenharia da Computação**, com interesse em tecnologia, organização de sistemas e desenvolvimento de software com base sólida em fundamentos.
+7º semestre · Engenharia da Computação · Minas Gerais, Brasil
 
-Atualmente concentro meus estudos em **desenvolvimento backend**, **arquitetura de software** e **APIs REST**, buscando compreender as decisões técnicas envolvidas — não apenas implementar soluções, mas entender seus impactos e trade-offs.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/caio-wilker-107a9032a)
+[![GitHub](https://img.shields.io/badge/github.com/caiowilker-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/caiowilker)
 
-Neste GitHub você encontrará projetos relacionados a:
-
-- Desenvolvimento backend com **Java e Spring**
-- Automações e ferramentas voltadas ao aprendizado prático
-- Aplicações **full stack** em evolução
-- Estudos focados em fundamentos de computação e engenharia de software
+</div>
 
 ---
 
-## ⭐ GitHub em números
+Desenvolvo software com foco em **arquitetura, segurança e produto**. Trabalho no ciclo completo — modelagem de banco, API REST, frontend e infraestrutura — com atenção real às decisões de engenharia por trás de cada escolha.
 
-<p align="center">
-  <a href="https://github.com/caiowilker?tab=repositories&sort=stargazers">
-    <img 
-      alt="Total de estrelas no GitHub" 
-      src="https://custom-icon-badges.demolab.com/github/stars/caiowilker?color=55960c&style=for-the-badge&labelColor=488207&logo=star&label=estrelas"
-    />
-  </a>
-  <a href="https://github.com/caiowilker?tab=followers">
-    <img 
-      alt="Seguidores no GitHub" 
-      src="https://custom-icon-badges.demolab.com/github/followers/caiowilker?color=236ad3&labelColor=1155ba&style=for-the-badge&logo=github&label=seguidores&logoColor=white"
-    />
-  </a>
-</p>
+Atualmente construindo o **Margin Engine**, SaaS B2B em produção com clientes reais, arquitetura multi-tenant e pipeline de billing integrado. **173 commits em abril de 2026** distribuídos entre backend, frontend e landing.
 
 ---
 
-## 🧠 Tecnologias & Ferramentas
+## Stack
 
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" width="38" title="Java"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" width="38" title="Spring Boot"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="38" title="JavaScript"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="38" title="TypeScript"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="38" title="React"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" width="38" title="Node.js"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="38" title="PostgreSQL"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="38" title="Git"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" width="38" title="Linux"/>
-</p>
+| | |
+|---|---|
+| **Backend** | Java · Spring Boot · Spring Security · JWT · JPA / Hibernate · PostgreSQL |
+| **Frontend** | TypeScript · React · Vite · React Query · Tailwind CSS |
+| **Infra & Tooling** | Supabase · RLS · Git · Linux · Docker · GTM · LGPD/GDPR |
 
 ---
 
-## 📊 Estatísticas do GitHub
+## Projeto principal
 
-<table align="center">
-  <tr>
-    <td>
-      <img 
-        src="https://github-readme-stats.vercel.app/api?username=caiowilker&show_icons=true&theme=tokyonight&include_all_commits=true&locale=pt-br" 
-        height="180"
-      />
-    </td>
-    <td>
-      <img 
-        src="https://github-readme-stats.vercel.app/api/top-langs/?username=caiowilker&theme=tokyonight&layout=compact&langs_count=8" 
-        height="180"
-      />
-    </td>
-  </tr>
-</table>
+### [Margin Engine](https://marginengine.com.br) — SaaS B2B em produção
 
----
+Software de controle de margem para açougues e supermercados. Calcula o custo real de cada corte a partir do preço da carcaça, monitora margem em tempo real e emite alertas antes de fechar no prejuízo.
 
-## 🎯 Em desenvolvimento atualmente
+**3 repositórios privados · backend (Java) + frontend (TypeScript) + landing (HTML)**
 
-- Backend com **Spring Boot**
-- Organização de projetos em camadas e boas práticas
-- Conceitos de segurança (JWT / OAuth2)
-- Modelagem e persistência de dados relacionais
-- Base de **engenharia de software** aplicada ao código
+Decisões técnicas implementadas:
+
+- **Multi-tenancy** com isolamento por `tenant_id` via Hibernate Filter — queries sempre escopadas, sem vazamento entre clientes
+- **Auth stateless** com JWT + refresh token rotation, armazenamento em `sessionStorage` para mitigar XSS
+- **Segurança de banco** com RLS em 8 tabelas: `ENABLE ROW LEVEL SECURITY` + policies `USING (false)` para roles públicos + `REVOKE` de privilégios — API REST pública bloqueada, backend Java com `BYPASSRLS`
+- **LGPD/GDPR** com cookie de domínio pai (`.marginengine.com.br`) compartilhado entre landing e app — GTM e Meta Pixel bloqueados até aceite explícito, sem dark patterns
+- **Performance** na landing: GTM lazy-loaded pós-interação, fontes com `media=print` swap, LCP < 2s
+- **Billing** com planos, limites por feature, upgrade flow e webhooks
+
+> Repositórios privados — código disponível para revisão sob solicitação.
 
 ---
 
-<p align="center">
-  <i>
-    Aprendizado contínuo, foco em fundamentos e evolução consistente.<br>
-    Construindo base técnica com responsabilidade.
-  </i>
-</p>
+## Projetos públicos
+
+### [desafio-consulta-vendas](https://github.com/caiowilker/desafio-consulta-vendas) · ⭐ 581 · Java · Spring Boot
+
+API REST de consulta e relatório de vendas. O projeto mais referenciado do perfil — Spring Boot, JPA e arquitetura em camadas. 581 pessoas salvaram como referência.
+
+### [SIGE Automator 3.0](https://github.com/caiowilker/SIGE_Automator_3.0) · Python
+
+Automação de cadastramento em massa de alunos em sistema de gestão escolar. Eliminou processo manual repetitivo com script de alta confiabilidade.
+
+### [DSCommerce](https://github.com/caiowilker/dscommerce-main) · Java · Spring Boot
+
+E-commerce com API REST completa, autenticação JWT e controle de perfis de acesso. Base sólida em Spring Security e modelagem de domínio.
+
+### [rest-client](https://github.com/caiowilker/rest-client) · Java
+
+Cliente HTTP para consumo de APIs REST externas. Estudo aplicado de integração entre serviços.
+
+---
+
+## Formação
+
+**Bacharelado em Engenharia da Computação** — 7º semestre
+
+Fundamentos aplicados diretamente ao código: estruturas de dados, algoritmos, sistemas operacionais, redes e engenharia de software.
+
+---
+
+## Estatísticas
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=caiowilker&show_icons=true&theme=tokyonight&include_all_commits=true&locale=pt-br&hide_border=true&count_private=true" height="160"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=caiowilker&theme=tokyonight&layout=compact&langs_count=6&hide_border=true" height="160"/>
+
+</div>
+
+---
+
+<div align="center">
+<sub>A maior parte do trabalho está em repositórios privados — o que importa está em produção.</sub>
+</div>
